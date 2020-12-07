@@ -62,7 +62,7 @@ export async function getStaticPaths() {
   const articles = await fetchAPI("/articles?status=published");
 
   return {
-    paths: articles.map((article) => ({
+    paths: Array.isArray(articles) && articles.map((article) => ({
       params: {
         slug: article.slug,
       },
