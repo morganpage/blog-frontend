@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[template]
+  incoming-hooks = ["strapi-update"]
+
+[template.environment]
+NEXT_PUBLIC_STRAPI_API_URL="https://yourherokuappname.herokuapp.com"
+NEXT_PUBLIC_GA_MEASUREMENT_ID = "G-????????"
+NEXT_PUBLIC_FONT_LINK=https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400
+NEXT_PUBLIC_FONT_FAMILY="'Nunito Sans', sans-serif"
