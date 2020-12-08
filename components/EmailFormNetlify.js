@@ -50,10 +50,10 @@ const EmailFormNetlify = () => {
 
   return (
     <Box borderWidth="2px" p={8}>
-      <Heading>Subscribe to our newsletter</Heading>
+      <Heading as="h2" size="lg" align="center">Subscribe to our newsletter</Heading>
       <form onSubmit={handleSubmit(onSubmit)} name="contact" data-netlify="true">
         <Flex>
-          <FormControl isRequired pt={2} align="center">
+          <FormControl isRequired pt={5} align="center">
             <Input name="name" placeholder="Your name" ref={register} />
             <Input type="email" name="email" placeholder="Your email" mt={2} ref={register} />
             <Button variant="outline" size="lg" fontSize="xl" fontWeight="bold" border="2px" borderColor="gray.600" type="submit" mt={6}>

@@ -12,7 +12,7 @@ const Home = ({ articles, categories, homepage, links }) => {
   return (
     <Layout categories={categories} links={links}>
       <Seo seo={homepage.seo} />
-      <Heading size="2xl"  textAlign="center" mt={8} mb={4}>
+      <Heading as="h1" size="2xl"  textAlign="center" mt={8} mb={4}>
         {homepage.hero?.title}
       </Heading>
       <Heading color="gray.600" as="h2" size="md" textAlign="center" pt={0} pb={6}>
