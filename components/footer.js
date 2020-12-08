@@ -9,7 +9,7 @@ const Footer = () => {
     <footer>
       <hr />
       <Flex pl={8} direction={{ md: "row", sm: "column" }}>
-        {Object.keys(groupedLinks).map((g,index) => (
+        {groupedLinks && Object.keys(groupedLinks).map((g,index) => (
           <Box key={index} minWidth="280px">
             <Heading fontSize="xl">{g}</Heading>
             <Stack>

@@ -3,7 +3,7 @@ import Image from "./image";
 import Link from "next/link";
 import Moment from "react-moment";
 
-const Card = ({ article, maxHeight }) => (
+const Card = ({ article}) => article ? (
   <Box _hover={{ bg: "#ebedf0" }} _active={{ bg: "#dddfe2" }} h={{lg:"100%", base: "auto"}} overflow="hidden">
     <Link href={`/article/${article.slug}`}>
       <a>
@@ -20,6 +20,6 @@ const Card = ({ article, maxHeight }) => (
       </a>
     </Link>
   </Box>
-);
+) : null;
 
 export default Card;
