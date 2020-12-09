@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
     shareImage: article.image,
     article: true,
   };
-  const mardownFormattedContent = ( marked(article.content.replace(".png",".jpg")));
+  const markdownFormattedContent = ( marked(article.content.replace(".png",".jpg")));
   return (
     <>
       <Layout categories={categories}>
@@ -39,7 +39,7 @@ const Article = ({ article, categories }) => {
           </Box>
 
           {/* <Markdown className="markdown">{article.content.replace(".png",".jpg")}</Markdown> */}
-          <div className="markdown" dangerouslySetInnerHTML={{__html: mardownFormattedContent}}></div>
+          <div className="markdown" dangerouslySetInnerHTML={{__html: markdownFormattedContent}}></div>
 
 
           {article.author && 
