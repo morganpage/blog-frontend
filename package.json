@@ -12,13 +12,13 @@
     "@emotion/react": "^11.0.0",
     "@emotion/styled": "^11.0.0",
     "framer-motion": "^2.9.4",
+    "markdown-to-jsx": "^7.1.0",
+    "marked": "^1.2.5",
     "moment": "^2.29.1",
     "next": "10.0.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "react-hook-form": "^6.11.5",
-    "react-markdown": "^5.0.2",
-    "react-moment": "^1.0.0",
-    "remark-gfm": "^1.0.0"
+    "react-moment": "^1.0.0"
   }
 }

@@ -2,11 +2,11 @@ const { Heading, Box, Text, Flex } = require("@chakra-ui/react");
 import { fetchAPI } from "../../lib/api";
 import { getStrapiMedia } from "../../lib/media";
 import Layout from "../../components/layout";
-import ReactMarkdownWithHtml from "react-markdown/with-html";
 import Moment from "react-moment";
 import Seo from "../../components/seo";
-import gfm from "remark-gfm";
 import Image from "../../components/image";
+import Markdown from 'markdown-to-jsx';
+import marked from 'marked';
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.image);
@@ -17,7 +17,7 @@ const Article = ({ article, categories }) => {
     shareImage: article.image,
     article: true,
   };
-
+  const mardownFormattedContent = ( marked(article.content.replace(".png",".jpg")));
   return (
     <>
       <Layout categories={categories}>
@@ -38,7 +38,10 @@ const Article = ({ article, categories }) => {
             <Image image={article.image} style={{width:"100%"}}/>
           </Box>
 
-          <ReactMarkdownWithHtml className="markdown" children={article.content.replace(".png",".jpg")} allowDangerousHtml plugins={[gfm]} />
+          {/* <Markdown className="markdown">{article.content.replace(".png",".jpg")}</Markdown> */}
+          <div className="markdown" dangerouslySetInnerHTML={{__html: mardownFormattedContent}}></div>
+
+
           {article.author && 
           <Box borderWidth="1px" p={8} my={8} borderRadius="10px" >
             <Heading as="h2" size="xl">Author</Heading>

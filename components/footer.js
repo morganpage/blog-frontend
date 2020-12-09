@@ -11,7 +11,7 @@ const Footer = () => {
       <Flex pl={8} direction={{ md: "row", sm: "column" }}>
         {groupedLinks && Object.keys(groupedLinks).map((g,index) => (
           <Box key={index} minWidth="280px">
-            <Heading fontSize="xl">{g}</Heading>
+            <Heading fontSize="xl" mb={2}>{g}</Heading>
             <Stack>
               {groupedLinks[g].map(l =><Link key={l.name} href={l.url}>{l.name}</Link>)}
             </Stack>
