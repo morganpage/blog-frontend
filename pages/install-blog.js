@@ -96,7 +96,7 @@ const InstallBlog = () => {
                 <FormLabel>Cloudinary API Secret</FormLabel>
                 <Input name="secret" placeholder="Cloudinary API Secret" ref={register} />
               </FormControl>
-              <a href={`https://www.heroku.com/deploy/?template=${envParamsBE()}`}>
+              <a target="_blank" href={`https://www.heroku.com/deploy/?template=${envParamsBE()}`}>
                 <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" />
               </a>
             </Box>
@@ -119,7 +119,7 @@ const InstallBlog = () => {
                 <FormLabel>Strapi API url</FormLabel>
                 <Input name="STRAPI_API_URL" placeholder="Strapi API url" ref={register} />
               </FormControl>
-              <a href={`https://app.netlify.com/start/deploy?repository=${envParamsFE()}`}>
+              <a target="_blank" href={`https://app.netlify.com/start/deploy?repository=${envParamsFE()}`}>
                 <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy" />
               </a>
             </Box>
