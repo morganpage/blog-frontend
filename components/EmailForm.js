@@ -21,7 +21,6 @@ export default function EmailForm() {
   const { register, handleSubmit } = useForm();
   const toast = useToast();
   const onSubmit = (data,e) => {
-    console.log(data);
 
     toast({
       title: "Account created.",

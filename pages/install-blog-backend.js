@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 
 const InstallBackend = () => {
   const { register, watch } = useForm();
-  const envParams = () =>
+  const envParamsBE = () =>
     `${process.env.NEXT_PUBLIC_DEPLOY_BACKEND}&env[CLOUDINARY_NAME]=${watch("name")}&env[CLOUDINARY_KEY]=${watch(
       "key"
     )}&env[CLOUDINARY_SECRET]=${watch("secret")}`;
@@ -30,7 +30,7 @@ const InstallBackend = () => {
           <FormLabel>Cloudinary API Secret</FormLabel>
           <Input name="secret" placeholder="Cloudinary API Secret" ref={register} />
         </FormControl>
-        <a href={`https://www.heroku.com/deploy/?template=${envParams()}`}>
+        <a href={`https://www.heroku.com/deploy/?template=${envParamsBE()}`}>
           <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy" />
         </a>
       </Box>
