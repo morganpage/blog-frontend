@@ -3,7 +3,7 @@ import { Box, Flex, FormControl, FormLabel, Heading, Input, Link, Spacer, Text, 
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { useState } from "react";
-import ReactPlayer from 'react-player';
+import ReactPlayer from "react-player";
 
 const InstallBlog = () => {
   const [state, setState] = useState({ email: "" });
@@ -45,6 +45,10 @@ const InstallBlog = () => {
         {/* <Heading as="h3" size="md" py={4} color="gray.600">Deploys a static site to Netlify</Heading>
         <Text>Please sign up for a free github account <Link href="https://github.com/" color="teal.500" isExternal>here</Link></Text>
         <Text>Then click on 'Deploy to Netlify'</Text> */}
+
+        <Box p={4}>
+          <Link isExternal href="https://youtu.be/vodxTh2-ehY" color="blue.500" fontWeight="bold">Click here for installation instructions</Link>
+        </Box>
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl id="License" py={4} isRequired>
             <FormLabel>License</FormLabel>
@@ -52,7 +56,7 @@ const InstallBlog = () => {
           </FormControl>
           <Button type="submit">VERIFY PURCHASE</Button>
         </form>
-
+        <Box></Box>
         {state.email && (
           <>
             <Box py={4}>
@@ -63,7 +67,6 @@ const InstallBlog = () => {
                 {state.product}
               </Text>
             </Box>
-            <ReactPlayer url='https://www.youtube.com/watch?v=vodxTh2-ehY' />
 
             <Box pt={8} px={8} maxWidth={720} mx="auto" align="center" mb={"auto"}>
               <Heading as="h2" size="xl">
