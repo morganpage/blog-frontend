@@ -3,6 +3,7 @@ import { Box, Flex, FormControl, FormLabel, Heading, Input, Link, Spacer, Text, 
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 import { useState } from "react";
+import ReactPlayer from 'react-player';
 
 const InstallBlog = () => {
   const [state, setState] = useState({ email: "" });
@@ -62,6 +63,7 @@ const InstallBlog = () => {
                 {state.product}
               </Text>
             </Box>
+            <ReactPlayer url='https://www.youtube.com/watch?v=vodxTh2-ehY' />
 
             <Box pt={8} px={8} maxWidth={720} mx="auto" align="center" mb={"auto"}>
               <Heading as="h2" size="xl">
