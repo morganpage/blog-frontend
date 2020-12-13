@@ -87,6 +87,7 @@ MyApp.getInitialProps = async (ctx) => {
   // Pass the data to our page via props
   const links = await fetchAPI("/links");
   global.groupedLinks = links.reduce((hash, obj) => ({...hash, [obj["group"]]:( hash[obj["group"]] || [] ).concat(obj)}), {});
+  global.emailform = await fetchAPI("/emailform");
 
   return { ...appProps, pageProps: { global} };
 };

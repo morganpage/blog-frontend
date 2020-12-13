@@ -130,6 +130,9 @@ const InstallBlog = () => {
             </Box>
           </>
         )}
+        <Box p={4}>
+          <Link isExternal href="https://youtu.be/MTUtBOnpr4s" color="blue.500" fontWeight="bold">How to set up a custom domain (i.e. blogtastic.com)</Link>
+        </Box>
       </Box>
 
       <Spacer />

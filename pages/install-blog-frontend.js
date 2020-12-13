@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 
 const InstallFrontend = () => {
   const { register, watch } = useForm();
-  const envParams = () =>
+  const envParamsFE = () =>
     `${process.env.NEXT_PUBLIC_DEPLOY_FRONTEND}#NEXT_PUBLIC_STRAPI_API_URL=${watch("STRAPI_API_URL")}`;
   return (
     <Flex pt={8} px={8} maxWidth={1280} mx="auto" flexDirection="column" height="100vh">
@@ -19,7 +19,7 @@ const InstallFrontend = () => {
           <FormLabel>Strapi API url</FormLabel>
           <Input name="STRAPI_API_URL" placeholder="Strapi API url" ref={register} />
         </FormControl>
-        <a href={`https://app.netlify.com/start/deploy?repository=${envParams()}`}>
+        <a href={`https://app.netlify.com/start/deploy?repository=${envParamsFE()}`}>
           <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy" />
         </a>
       </Box>

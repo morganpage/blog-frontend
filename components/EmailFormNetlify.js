@@ -1,7 +1,9 @@
-import { Box, FormControl, Input, Button, Flex, Heading } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { Box, FormControl, Input, Button, Flex, Heading,VStack,Checkbox,Text } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { GlobalContext } from "../pages/_app";
+import Image from "./image";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -10,24 +12,11 @@ const encode = (data) => {
 };
 
 const EmailFormNetlify = () => {
+  const { emailform } = useContext(GlobalContext);
   const { register, handleSubmit } = useForm();
   const toast = useToast();
 
-  // useEffect(() => {
-  //   if (window.location.search.includes("success=true")) {
-  //     setSuccess(true);
-  //     toast({
-  //       title: "Subscription Success.",
-  //       description: "You have successfully subscribed to our newsletter.",
-  //       status: "success",
-  //       duration: 9000,
-  //       isClosable: true,
-  //     })
-  //   }
-  // }, []);
-
   const onSubmit = (data, e) => {
-    // console.log(data);
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -50,17 +39,29 @@ const EmailFormNetlify = () => {
 
   return (
     <Box borderWidth="2px" p={8}>
-      <Heading as="h2" size="lg" align="center">Subscribe to our newsletter</Heading>
+      <Heading as="h2" size="lg" align="center">
+        {emailform.title || "Subscribe to our newsletter"}
+      </Heading>
       <form onSubmit={handleSubmit(onSubmit)} name="contact" data-netlify="true">
-        <Flex>
-          <FormControl isRequired pt={5} align="center">
-            <Input name="name" placeholder="Your name" ref={register} />
-            <Input type="email" name="email" placeholder="Your email" mt={2} ref={register} />
-            <Button variant="outline" size="lg" fontSize="xl" fontWeight="bold" border="2px" borderColor="gray.600" type="submit" mt={6}>
-              Subscribe
-            </Button>
-          </FormControl>
-        </Flex>
+        <VStack>
+          <Flex py={4}>
+            <Image image={emailform.image} style={{ paddingRight: "10px" }} />
+            <FormControl isRequired py={2} align="left">
+              <Input name="name" placeholder="Your name" ref={register} />
+              <Input type="email" name="email" placeholder="Your email" mt={2} ref={register} />
+              {emailform.checkboxText && <Flex fontSize="xs" pt={2} alignItems="flex-start">
+                <Checkbox name="checkbox" pt={1} colorScheme={emailform.colorScheme || "teal"} defaultIsChecked></Checkbox>
+                <Text pl={2}>{emailform.checkboxText}</Text>
+              </Flex>}
+            </FormControl>
+          </Flex>
+          <Button colorScheme={emailform.colorScheme || "teal"} size="lg" fontSize="xl" fontWeight="bold" type="submit">
+            {emailform.buttonText || "Subscribe"}
+          </Button>
+          {emailform.footerText && <Text fontSize="xs" textAlign="left" pt={4}>
+            {emailform.footerText}
+          </Text>}
+        </VStack>
       </form>
     </Box>
   );
