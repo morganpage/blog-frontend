@@ -47,7 +47,11 @@ const theme = extendTheme({
         },
         ul: {
           padding: "0px 0 8px 28px"
-        }
+        },
+        ol: {
+          padding: "0px 0 8px 28px"
+        },
+
       },
       ".box": {
         borderRadius: "0px",
