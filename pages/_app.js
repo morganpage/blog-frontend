@@ -87,11 +87,22 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
   // Fetch global site settings from Strapi
-  const global = await fetchAPI("/global");
+  //const global = await fetchAPI("/global");
   // Pass the data to our page via props
-  const links = await fetchAPI("/links");
+  //const links = await fetchAPI("/links");
+
+  const [articles, global,links,emailform ,homepage] = await Promise.all([
+    fetchAPI("/articles?status=published"),
+    fetchAPI("/global"),
+    fetchAPI("/links"),
+    fetchAPI("/emailform"),
+    fetchAPI("/homepage"),
+  ]);
+
   global.groupedLinks = links.reduce((hash, obj) => ({...hash, [obj["group"]]:( hash[obj["group"]] || [] ).concat(obj)}), {});
-  global.emailform = await fetchAPI("/emailform");
+  global.emailform = emailform;
+  global.articles = articles;
+  global.homepage = homepage;
 
   return { ...appProps, pageProps: { global} };
 };

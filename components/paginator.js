@@ -1,0 +1,7 @@
+const paginator = () => {
+  return (
+    <>
+      dfgdf
+    </>
+  )
+}
