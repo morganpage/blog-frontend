@@ -88,7 +88,7 @@ MyApp.getInitialProps = async (ctx) => {
   const appProps = await App.getInitialProps(ctx);
   const [articles,article_count, global,links,emailform ,homepage] = await Promise.all([
     fetchAPI("/articles?status=published&_limit=5&_sort=publishedAt:desc"),
-    fetchAPI("/articles/count"),
+    fetchAPI("/articles/count?status=published"),
     fetchAPI("/global"),
     fetchAPI("/links"),
     fetchAPI("/emailform"),

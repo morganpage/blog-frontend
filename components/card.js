@@ -7,7 +7,7 @@ const Card = ({ article}) => article ? (
   <Box _hover={{ bg: "#ebedf0",boxShadow: "sm" }} _active={{ bg: "#dddfe2" }} h={{lg:"100%", base: "auto"}} overflow="hidden" >
     <Link href={`/article/${article.slug}`} >
       <a>
-        <Box h="60%" _hover={{ bg: "#ebedf0" }}>
+        <Box h="20%" minHeight="200px"  _hover={{ bg: "#ebedf0" }}>
           <Image nocaption prefix="small_" image={article.image} style={{ opacity: 0.9, width: "100%", height: "100%", objectFit: "cover" }} />
         </Box>
         <Box p={4}>

@@ -33,8 +33,11 @@ const PageComponent = ({children}) => {
       </Heading>
       <Featured article={featured}/>
       {children}
-      <Flex justifyContent="center"><Pagination count={getPages(article_count)} page={parseInt(router.query.slug) || 1} onChange={handlePagination} /></Flex>
-      
+      { (getPages(article_count) > 1) &&
+      <Flex justifyContent="center">
+        <Pagination count={getPages(article_count)} page={parseInt(router.query.slug) || 1} onChange={handlePagination} />
+      </Flex>
+      }
     </Layout>
   );
 
