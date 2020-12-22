@@ -1,5 +1,5 @@
 import Articles from "../components/articles";
-import PageComponent from "../components/pagecomponent";
+import PageComponent from "../components/PageComponent.js";
 import {useContext} from 'react';
 import { GlobalContext } from "../pages/_app";
 
