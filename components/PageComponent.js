@@ -1,11 +1,10 @@
-import {useContext ,useState} from 'react';
+import {useContext } from 'react';
 import { GlobalContext } from "../pages/_app";
-import { Heading } from "@chakra-ui/react";
+import { Heading ,Flex} from "@chakra-ui/react";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import Featured from "../components/featured";
 import Pagination from '@material-ui/lab/Pagination';
-import { Text, Box, Flex, Spacer } from "@chakra-ui/react";
 import { useRouter } from 'next/router'
 import { getPages } from '../lib/pagination';
 

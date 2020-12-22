@@ -1,5 +1,5 @@
 import Articles from "../components/articles";
-import PageComponent from "../components/pagecomponent";
+import PageComponent from "../components/PageComponent.js";
 import { fetchAPI } from "../lib/api";
 import { articlesPerPage, getPages } from "../lib/pagination";
 
