@@ -16,6 +16,20 @@ const EmailFormNetlify = () => {
   const { register, handleSubmit } = useForm();
   const toast = useToast();
 
+  const addSubscriber = (data) => {
+    const url = "/.netlify/functions/add-subscriber";
+    const group = process.env.NEXT_PUBLIC_GROUP;
+    const settings = {
+      method: "POST",
+      body: JSON.stringify({ data ,group}),
+    };
+    const response = await fetch(url, settings);
+    const body = await response.text();
+    console.log(response);
+    
+  }
+
+
   const onSubmit = (data, e) => {
     fetch("/", {
       method: "POST",

@@ -1,4 +1,4 @@
-import { Text, Box, Flex, Spacer } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import { useContext } from "react";
 import { GlobalContext } from "../pages/_app";
