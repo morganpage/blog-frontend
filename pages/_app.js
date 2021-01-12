@@ -5,6 +5,7 @@ import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api";
 import Head from "next/head";
 import App from "next/app";
+import { articlesPerPage } from "../lib/pagination";
 
 const theme = extendTheme({
   fonts: {
@@ -28,7 +29,7 @@ const theme = extendTheme({
         h2: {
           fontSize: "2xl",
           fontWeight: "bold",
-          padding: "12px 0 2px 0",
+          padding: "12px 0 2px 0"
         },
         h3: {
           fontSize: "xl",
@@ -51,7 +52,11 @@ const theme = extendTheme({
         ol: {
           padding: "0px 0 8px 28px"
         },
-
+        pre: {
+          backgroundColor: "#002B36",
+          color:"#BBB",
+          padding:"28px"
+        }
       },
       ".box": {
         borderRadius: "0px",
@@ -87,7 +92,7 @@ MyApp.getInitialProps = async (ctx) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(ctx);
   const [articles,article_count, global,links,emailform ,homepage] = await Promise.all([
-    fetchAPI("/articles?status=published&_limit=5&_sort=publishedAt:desc"),
+    fetchAPI(`/articles?status=published&_limit=${articlesPerPage+1}&_sort=publishedAt:desc`),
     fetchAPI("/articles/count?status=published"),
     fetchAPI("/global"),
     fetchAPI("/links"),

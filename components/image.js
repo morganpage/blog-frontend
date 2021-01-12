@@ -4,7 +4,7 @@ import { Flex, Text } from "@chakra-ui/react";
 const Image = ({ image, style, prefix,nocaption }) => {
   if (!image) return null;
   let imageUrl = getStrapiMedia(image);
-  imageUrl = imageUrl.replace(".png", ".jpg");
+  //imageUrl = imageUrl.replace(".png", ".jpg");
   if (prefix) {
     let filename = imageUrl.split("/").pop();
     imageUrl = imageUrl.replace(filename, prefix + filename);

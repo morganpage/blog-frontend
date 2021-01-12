@@ -11,7 +11,7 @@ import { getPages } from '../lib/pagination';
 const PageComponent = ({children}) => {
   const router = useRouter()
   const { links,categories,homepage,articles,article_count } = useContext(GlobalContext);
-  let featured = articles[0];
+  let featured = articles && articles[0];
 
   const handlePagination = (event, value) =>{
     if(value == 1)
@@ -23,11 +23,11 @@ const PageComponent = ({children}) => {
 
   return (
     <Layout categories={categories} links={links}>
-      <Seo seo={homepage.seo} />
+      <Seo seo={homepage?.seo} />
       <Heading as="h1" size="2xl"  textAlign="center" mt={8} mb={4}>
-        {homepage.hero?.title}
+        {homepage?.hero?.title}
       </Heading>
-      <Heading color="gray.600" as="h2" size="md" textAlign="center" pt={0} pb={6}>
+      <Heading color="gray.600" as="h2" size="md" textAlign="center" lineHeight="1.6" pt={0} pb={6}>
         {homepage?.seo?.metaDescription}
       </Heading>
       <Featured article={featured}/>
